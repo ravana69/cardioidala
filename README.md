@@ -1,0 +1,5 @@
+# Cardioidala
+
+A Pen created on CodePen.io. Original URL: [https://codepen.io/tsuhre/pen/YzdvrMW](https://codepen.io/tsuhre/pen/YzdvrMW).
+
+An ever-changing mandala generated from animated cardioids. Each cardioid is rendered using a set of spirals that are produced by blending a rotating stack of rectangles. Because the performance cost of rendering all of the cardioids at the same time would be too high to achieve a decent framerate, the animation is double buffered. First the current animation frame is written to a frame buffer. Then "instances" of the animation (animations with different offsets) are written to a separate "wedge" buffer before being combined into the final image. The frame buffering technique allows for offsets in the animation so that there is variation among the different instances of each cardioid. Because the frame index of each offset animation advances at the same rate that the next frame is written, the offset animations never reach the "end" of the frame buffer history.
